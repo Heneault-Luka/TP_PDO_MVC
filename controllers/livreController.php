@@ -1,40 +1,42 @@
 <?php
 $action=$_GET['action'];
 switch($action){
-        case 'list';
+        case 'list':
             $lesLivres = Livre::findAll();
             include('vues/livre/listeLivres.php');
             break;
 
-        case 'add';
+        case 'add':
             $mode="Ajouter";
             include('vues/livre/formLivre.php');
             break;
 
-        case 'update';
+        case 'update':
             $mode="Modifier";
             $livre=Livre::findById($_GET['num']);
             include('vues/livre/formLivre.php');
             break;
 
-        case 'delete';
+        case 'delete':
             $livre=Livre::findById($_GET['num']);
             $nb=Livre::delete($livre);
             if($nb==1){
                 $_SESSION['message']=["success"=>"Le livre a bien été supprimé"];
-            }else{
+            }
+            else{
                 $_SESSION['message']=["danger"=>"Le livre a bien été supprimé"];
             }
             header('location:index.php?uc=livres&action=list');
             break;
 
-        case 'valideForm';
+        case 'valideForm':
             $livre=new Livre();
-            if(empty($_POST['num'])){//cas d'une création
+            if(empty($_POST['num'])){
                 $livre->setTitre($_POST['titre']);
                 $nb=Livre::add($livre);
                 $message ="ajouté"; 
-            }else{//cas d'une modif
+            }
+            else{
                 $livre->setNum($_POST['num']);
                 $livre->setTitre($_POST['titre']);
                 $nb=Livre::update($livre);
@@ -42,7 +44,8 @@ switch($action){
             }
             if($nb==1){
                 $_SESSION['message']=["success"=>"Le livre a bien été $message"];
-            }else{
+            }
+            else{
                 $_SESSION['message']=["danger"=>"Le livre n'a pas été $message"];
             }
             header('location:index.php?uc=livres&action=list');
