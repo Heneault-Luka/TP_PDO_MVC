@@ -16,7 +16,6 @@ use PSpell\Config;
         private $libelle;
 
 
-
         /**
          * Get the value of num
          */ 
@@ -94,7 +93,6 @@ use PSpell\Config;
             $nb=$req->execute();
             return $nb;
         }
-
 
 
         /**

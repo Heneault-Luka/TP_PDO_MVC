@@ -30,7 +30,6 @@ use PSpell\Config;
         private $numNationalite;
 
 
-
         /**
          * retourne l'ensemble des auteurs
          *
@@ -82,7 +81,6 @@ use PSpell\Config;
         }
 
 
-
         /**
          * modifier un auteur
          *
@@ -122,10 +120,6 @@ use PSpell\Config;
         }
         
 
-        ////// GETTERS ET SETTER
-
-
-
         //GETSETTER DU NUM
         /**
          * Get numero de l'auteur
@@ -149,8 +143,6 @@ use PSpell\Config;
 
                 return $this;
         }
-
-
 
 
         // GETSETTER DU NOM 
@@ -202,8 +194,6 @@ use PSpell\Config;
         }
 
 
-
-
         /// GETSETTER NATIONALITE
         /**
          * Get nationalite
@@ -224,7 +214,4 @@ use PSpell\Config;
                 $this->numNationalite = $nationalite->getNum();
                 return $this;
         }
-
-
-        
     }

@@ -5,29 +5,6 @@
         <div class="col-3"><a href="index.php?uc=nationalites&action=add" class='btn btn-success'><i class="fas fa-plus-circle"></i> Créer une nationalité</a> </div>
         
     </div>
-
-    <form id="formRecherche" action="index.php?uc=nationalites&action=list" method="post" class="border border-primary rounded p-3 mt-3 mb-3">
-    <div class="row">
-            <div class="col">
-                <input type="text" class='form-control' id='libelle' onInput="document.getElementById('formRecherche').submit()" placehoder='Saisir le libellé' name='libelle' value="<?php echo $libelle; ?>">
-            </div>
-            <div class="col">
-                <select name="continent" class="form-control" onChange="document.getElementById('formRecherche').submit()">
-                        <?php 
-                        echo "<option value='Tous'>Tous les continents</option>";
-                        foreach($lesContinents as $continent){
-                            $selection=$continent->getNum() == $continentSel ? 'selected' : '';
-                            echo "<option value='".$continent->getNum()."'".$selection.">".$continent->getLibelle()."</option>";
-                        }
-                        ?>
-                </select>
-            </div>
-            <div class="col">
-                <button type="submit" class="btn btn-success btn-block"> Rechercher</button>
-            </div> 
-        </div>
-    </form>
-
   
     <table class="table table-hover table-striped">
     <thead>

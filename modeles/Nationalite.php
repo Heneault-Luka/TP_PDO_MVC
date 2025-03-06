@@ -67,22 +67,6 @@
             return $lesResultats;
         }
 
-        /**
-         * Trouve une nationalite par son nom
-         *
-         * @param integer $id numero du nationalite
-         * @return Nationalite objet nationalite trouvé
-         */
-        public static function findById(int $id) :Nationalite 
-        {
-            $req=MonPdo::getInstance()->prepare("Select * from nationalite where num= :id");
-            $req->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,'Nationalite');
-            $req->bindParam(':id',$id);
-            $req->execute();
-            $lesResultats=$req->fetch();
-            return $lesResultats;
-        }
-
 
         /**
          * Ajout d'une nationalite
@@ -98,7 +82,6 @@
             $nb=$req->execute();
             return $nb;
         }
-
 
 
         /**
@@ -122,12 +105,12 @@
         }
 
 
-    /**
-     * supprimer une nationalité
-     *
-     * @param Nationalite $nationalite
-     * @return integer
-     */
+        /**
+         * supprimer une nationalité
+         *
+         * @param Nationalite $nationalite
+         * @return integer
+         */
         public static function delete(Nationalite $nationalite) :int
         {
             $req=MonPdo::getInstance()->prepare("delete from nationalite where num= :id");
