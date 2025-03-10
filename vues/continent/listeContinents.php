@@ -17,22 +17,21 @@
             <th scope="col" class="col-md-2">Actions</th>
             </tr>
         </thead>
-    <tbody>
-        <?php
-        foreach($lesContinents as $continent){
-            echo "<tr class='d-flex'>";
-            echo "<td class='col-md-2'>".$continent->getnum()."</td>";
-            echo "<td class='col-md-8'>".$continent->getLibelle()."</td>";
-            echo "<td class='col-md-2'>
-                <a href='index.php?uc=continents&action=update&num=".$continent->getNum()."' class='btn btn-primary'><i class='fas fa-pen'></i></a>
-                <a href='#modalSuppression' data-toggle='modal' data-message='Voulez vous supprimer ce continent ?' data-suppression='index.php?uc=continents&action=delete&num=".$continent->getNum()."' class='btn btn-danger'><i class='far fa-trash-alt'></i></a>
-            </td>";
-            echo "</tr>";
-        }
-
-        ?>
-            
-    </tbody>
+        <tbody>
+            <?php
+            foreach($lesContinents as $continent){
+                echo "<tr class='d-flex'>";
+                echo "<td class='col-md-2'>".$continent->getnum()."</td>";
+                echo "<td class='col-md-8'>".$continent->getLibelle()."</td>";
+                echo "<td class='col-md-2'>
+                    <a href='index.php?uc=continents&action=update&num=".$continent->getNum()."' class='btn btn-primary'><i class='fas fa-pen'></i></a>
+                    <a href='#modalSuppression' data-toggle='modal' data-message='Voulez vous supprimer ce continent ?' data-suppression='index.php?uc=continents&action=delete&num=".$continent->getNum()."' class='btn btn-danger'><i class='far fa-trash-alt'></i></a>
+                </td>";
+                echo "</tr>";
+            }
+            ?>
+   
+        </tbody>
     </table>
 
 </div>

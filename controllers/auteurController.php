@@ -8,6 +8,7 @@ switch($action){
 
         case 'add':
             $mode="Ajouter";
+            $auteur=Auteur::findAll();
             include('vues/auteur/formAuteur.php');
             break;
 

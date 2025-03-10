@@ -68,6 +68,16 @@
         }
 
 
+        public static function findById(int $id) :Nationalite 
+        {
+            $req=MonPdo::getInstance()->prepare("Select * from nationalite where num= :id");
+            $req->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,'Nationalite');
+            $req->bindParam(':id',$id);
+            $req->execute();
+            $lesResultats=$req->fetch();
+            return $lesResultats;
+        }
+
         /**
          * Ajout d'une nationalite
          *
@@ -78,7 +88,7 @@
         {
             $req=MonPdo::getInstance()->prepare("insert into nationalite(libelle,numContinent) values(:libelle, :numContinent)");
             $req->bindParam(':libelle',$nationalite->getLibelle());
-            $req->bindParam(':numContinent',$nationalite->numContinent);
+            $req->bindParam(':numContinent',$nationalite->numContinent());
             $nb=$req->execute();
             return $nb;
         }
@@ -138,9 +148,8 @@
          */ 
         public function getNum() : int
         {
-            return $this->num; //probleme
+            return $this->num;
         }
-
         
         /**
          * lit le libellé

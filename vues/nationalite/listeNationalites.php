@@ -5,7 +5,7 @@
         <div class="col-3"><a href="index.php?uc=nationalites&action=add" class='btn btn-success'><i class="fas fa-plus-circle"></i> Créer une nationalité</a> </div>
         
     </div>
-  
+
     <table class="table table-hover table-striped">
     <thead>
         <tr class="d-flex">
